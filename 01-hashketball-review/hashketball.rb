@@ -118,12 +118,28 @@ def game_hash
 end
 
 
-# def num_points_scored(player_name)
-#   # get a list of all the players
-#   # find the player whose name matches the argument 'player_name'
-#   # return that player's points
-# end
+## First pass: cheat!
+# jeff = game_hash[:away][:players]["Jeff Adrien"]
+# jeff[:points]
 
+
+def num_points_scored(player_name)
+  # get a list of all the players
+  ## there's a hash of home players and a hash of away players
+  ## if we can combine them, that's all the players
+  home_players = game_hash[:home][:players]
+  away_players = game_hash[:away][:players]
+  all_players = home_players.merge(away_players)
+  # find the player whose name matches the argument 'player_name'
+  all_players.each do |player|
+    name = player[0]
+    stats = player[1]
+    if name == player_name
+      # return that player's points
+      return stats[:points]
+    end
+  end
+end
 
 
 
