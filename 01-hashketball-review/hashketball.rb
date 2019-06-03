@@ -122,25 +122,43 @@ end
 # jeff = game_hash[:away][:players]["Jeff Adrien"]
 # jeff[:points]
 
-
-def num_points_scored(player_name)
-  # get a list of all the players
+def get_all_players
   ## there's a hash of home players and a hash of away players
   ## if we can combine them, that's all the players
   home_players = game_hash[:home][:players]
   away_players = game_hash[:away][:players]
-  all_players = home_players.merge(away_players)
-  # find the player whose name matches the argument 'player_name'
-  all_players.each do |player|
-    name = player[0]
-    stats = player[1]
-    if name == player_name
-      # return that player's points
-      return stats[:points]
-    end
-  end
+  home_players.merge(away_players)
 end
 
+# describe '#shoe_size' do
+# shoe_size for "Brook Lopez" should be 17
+
+def find_stats_for_player(player_name)
+  get_all_players[player_name]
+end
+
+def shoe_size(player_name)
+  # get_all_players(player_name)[:shoe]
+  get_all_players[player_name][:shoe]
+
+  # stats = find_stats_for_player(player_name)
+  # stats[:shoe]
+end
+
+def num_points_scored(player_name)
+  find_stats_for_player(player_name)[:points]
+end
+
+binding.pry
+
+#   it 'knows the shoe size of each player' do
+# describe '#team_colors' do
+
+#   it 'knows the Brooklyn Nets colors are Black and White' do
+
+# describe '#player_numbers' do
+
+#   it 'returns the player jersey numbers' do
 
 
 # # EXERCISE:

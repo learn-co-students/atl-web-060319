@@ -1,17 +1,22 @@
 # Hashketball Review
 
+
+
 ## Objectives
 
 Today, we learn:
 
 * A strategy for approaching development.
 * A strategy for approaching testing.
+* How to read an error message and traceback.
 * How to identify different Ruby data types.
 * Trace data flow across methods and method chains.
 * How to decide on an appropriate enumerable method.
 
 * Exercise: Recognize calling a method vs passing an argument.
 * Exercise: Determine data types in a method chain.
+
+
 
 ### Enter Hashketball
 
