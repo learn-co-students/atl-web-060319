@@ -37,7 +37,23 @@ I hope to:
 ## Notes
 
 - Whiteboard exercise: classes and instances table
+
+classes | instances
+===================
+Array    | []
+Hash     | {}
+String   | "zach"
+NilClass | nil
+Dog      | Fido
+Integer  | 42
+
 - What are classes?
+  * a category or grouping
+  * a bag of methods
+  * a platonic idea of some kind of item or thing
+  * a blueprint
+  * a owner's manual
+  * a factory
 - Let's start by talking about the built in classes in Ruby.
   * All the data you've been working with is an instance of some class.
   * They're just _values_. What can we do with ruby values?
