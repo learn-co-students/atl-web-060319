@@ -1,10 +1,17 @@
 class Zoo
-    attr_accessor :name
-    attr_reader :location
+    attr_accessor :name, :city
 
-    def initialize(name, location)
+    def initialize(name, city)
         @name = name
-        @location = location
-        @animals = []
+        @city = city
+    end
+
+    def animals
+        Animal.all.select { |animal| animal.zoo == self }
+    end
+
+    def add_animal(species, name)
+        Animal.new(species, name, self)
     end
 end
+
