@@ -2,7 +2,21 @@
 
 ### Timeline
 
-* Stop by 11:15 so we have a 15 minute break before career services talk.
+
+
+#### What is an ORM?
+
+* Object Relational Mapper
+* A way to transform database records into objects and vice versa.
+
+#### Why do I want an ORM?
+
+* Because I want transparently persist objects or work with objects that get persisted.
+* I don't switch between languages during development.
+* I want to work with denormalized ruby objects and normalized database records.
+
+
+* Stop by 11:00 so Safae can lecture.
 * 60 seconds: What is an ORM? Why do you want one?
 * 4 minutes: Review Rakefile, environment, Gemfile. Seen already in labs.
 * Run the app, let's build an ORM for it to use.
