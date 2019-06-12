@@ -16,11 +16,17 @@
 
 ### Notes
 
-As this is a review for Friday's code challenge, we will be working with an environment consisting of pry, a few other gems and the terminal. There will be **no tests** like there are in the labs. `config/environment.rb` is set up so that each of the files in the 'app' directory are connected to one another. Seed Data will be placed in `tools/console.rb`, directly before `Pry` is executed. This way, all of your classes will have loaded and instances initialized by the time the repl opens. To run your code, simply enter `tools/console.rb` in the terminal.
+As this is a review for Friday's code challenge, we will be working with an environment consisting of pry, a few other gems and the terminal. There will be **no tests** like there are in the labs. Seed Data will be placed in `tools/console.rb`, directly before `Pry` is executed. This way, all of your classes will have loaded and instances initialized by the time the repl opens. To run your code, simply enter `tools/console.rb` in the terminal.
 
 ### Questions
 
-* ???
+* Testing Approach - How to test one method at a time?
+  * Given, When, Then
+* Pry - why have it in the runfile vs somewhere else?
+* Runfile - what do we put in it?
+* Enumerables - why do I need to use map sometimes and select sometimes and each sometimes and wtf?
+* Custom setters - what if we need to restrict the data stored in a particular ivar (like 1-5)?
+
 
 ### Methods
 
@@ -28,23 +34,24 @@ As this is a review for Friday's code challenge, we will be working with an envi
 
 #### Class Methods
 
-- `User.all`: should return **all** of the user instances
-- `User.find_by_name(name)`: given a string of a **full name**, returns the first users whose full name matches
-- `User.all_names`: should return an array of all of the user full names
+<!-- - `User.all`: should return **all** of the user instances -->
+<!-- - `User.find_by_name(name)`: given a string of a **full name**, returns the first users whose full name matches -->
+<!-- - `User.all_names`: should return an array of all of the user full names -->
 
 #### Instance Methods
 
-- `User#full_name`: returns a user's first and last name together
-- `User#reviews`: return a unique list of a given user's reviews
-- `User#album_reviews(album)`: return a user's reviews of a given album
-- `User#add_review(album, review_content)`: add a new album review for a given user
+<!-- - `User#full_name`: returns a user's first and last name together -->
+<!-- - `User#reviews`: return a unique list of a given user's reviews -->
+<!-- - `User#album_reviews(album)`: return a user's reviews of a given album -->
+<!-- - `User#add_review(album, review_content)`: add a new album review for a given user -->
+<!-- `User#reviewed_albums`: return a unique list of albums the user reviewed -->
 
 ## Album
 
 #### Class Methods
 
 - `Album.all`: returns an array of all the albums
-- `Album.find_by_title(title)`: given a string of an album title, return the album hash that matches
+- `Album.find_by_title(title)`: given a string of an album title, return the album that matches
 
 #### Instance Methods
 
@@ -56,11 +63,11 @@ As this is a review for Friday's code challenge, we will be working with an envi
 
 #### Class Methods
 
-- `Review.all`: returns an array of all reviews
+<!-- - `Review.all`: returns an array of all reviews -->
 
 #### Instance Methods
 
-- `Review#user`: returns the user object for a given review. Once a review has been made, the user should not change.
+<!-- - `Review#user`: returns the user object for a given review. Once a review has been made, the user should not change.
 - `Review#album`: returns the album object for a given review. Again, no changing!
-- `Review#content`: returns the text of a review object's content property  
+- `Review#content`: returns the text of the review object -->
 
