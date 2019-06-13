@@ -2,9 +2,11 @@
 
 * Look briefly at AR project structure - 5 minutes
 * Build migrations to create authors and books tables
+* Maybe talk about `bundle exec` and Gemfile issues
 * Add models and demonstrate AR methods
 * Write a method to pull the books for a particular author
   * Is that _really_ an array?
+* Talk naming conventions for 5 minutes.
 * Write a method to pull the author for a book.
 
 ~fin~
@@ -139,5 +141,6 @@ end
 - Model.find_by\({ attribute: value }\)
   - can find by one attribute-value pair or multiple
   - `Boxer.find_by(name: 'Mike Tyson')` will return the boxer with a name of 'Mike Tyson'
+- Model.where\({ deceased: true }\)
 
 [Active Record Docs](http://edgeguides.rubyonrails.org/active_record_migrations.html#using-the-up-down-methods)
