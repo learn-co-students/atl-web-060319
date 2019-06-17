@@ -11,4 +11,18 @@ class Post < ActiveRecord::Base
   def top_3_comments
     comments.order(rating: :desc).limit(3)
   end
+
+  def short_description
+    "#{self.id}. #{self.title} by #{self.user.name}"
+  end
+
+  def detail_view
+    "\n\n
+    Title: #{title}
+    Author: #{user.name}
+    
+    =======
+    #{content}
+    \n\n"
+  end
 end
