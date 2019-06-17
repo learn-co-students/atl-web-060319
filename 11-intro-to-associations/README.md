@@ -4,9 +4,7 @@
 
 * Use associations to relate models: User < Comment > Post
 * Use a seed file to put info in the database
-* Add some validations to enforce rules about our data
-* Demo a CLI class
-   - Maybe use [tty gems](https://piotrmurach.github.io/tty/)
+* Review "bonus" association methods
 
 10am - Associations lecture
 01pm - Classroom chat about projects
@@ -15,6 +13,11 @@
   * What models and relationships do you have planned?
   * How are you thinking about diving up the work?
 
+### 1pm Project Demo
+
+* Demo a CLI class
+   - Maybe use [tty gems](https://piotrmurach.github.io/tty/)
+* Add some validations to enforce rules about our data
 * Maybe do something cute with backticks, `open`, `say`, `afplay`, etc
    * ~/p/f/b/a/links ❯❯❯ say 'good morning tez'
    * ~/p/f/b/a/links ❯❯❯ open "http://google.com"
