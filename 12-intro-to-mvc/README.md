@@ -22,17 +22,17 @@
 
 A tiny library website.
 
-* make a wonderful homepage
-* list all the books
-* get info on a single book
+<!-- * make a wonderful homepage -->
+<!-- * list all the books -->
+<!-- * get info on a single book -->
 * If there's time: add a new book
 
 ### Timeline
 
-* 10 minutes, getting familiar with HTTP requests and responses
-* 10 minutes, making a homepage and talking MVC
-* 10 minutes, making an index page for all books
-* 10 minutes, making a show page for an individual book
+<!-- * 10 minutes, getting familiar with HTTP requests and responses -->
+<!-- * 10 minutes, making a homepage and talking MVC -->
+<!-- * 10 minutes, making an index page for all books -->
+<!-- * 10 minutes, making a show page for an individual book -->
 * 10 minutes, making a form for a new book.
 
 WHOO. That's most of CRUD in 1 day.
