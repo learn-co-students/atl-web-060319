@@ -12,8 +12,7 @@ A tiny library.
 ## Waking Up
 
 * If we visit routes defining `@books` and `@book`, can we see both vars?
-  * How can we explain this behavior?
-  * Is there a way we can _visually_ see this happening?
+  * How can we explain this behavior? How can we debug / see it?s
 * Let's add a new route for `get '/books/new'`. Why can't we get to that page?
 
 ### More behavior - CRUD
