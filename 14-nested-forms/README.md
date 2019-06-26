@@ -23,9 +23,9 @@ A tiny library.
 ## Waking Up
 
 * Warmup! Two refactorings to our form that demonstrate:
-  * Mass Assignment
+  <!-- * Mass Assignment -->
     * If ruby turns key: value arguments into a hash, could we just pass a hash?
-  * Route Priority
+  <!-- * Route Priority -->
     * Give the form a page: `get '/books/new'`. Why can't we get to that page?
 
 ### Why are forms hard?
