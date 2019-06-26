@@ -12,21 +12,42 @@ class ApplicationController < Sinatra::Base
 
   get '/books' do
     @books = Book.all
-    erb :index
+    erb :"books/index"
   end
 
   get '/books/new' do
-    erb :new
+    erb :"books/new"
   end
 
   get '/books/:id' do
     @book = Book.find(params[:id])
-    erb :show
+    erb :"books/show"
   end
 
   post '/books' do
     @book = Book.create(params)
     redirect "/books/#{@book.id}"
+  end
+
+  get '/authors' do
+    @authors = Author.all
+    erb :"authors/index"
+  end
+
+  get '/authors/new' do
+    erb :"authors/new"
+  end
+
+  post '/authors' do
+    @author = Author.create(full_name: params[:full_name])
+    params[:books].each do |book_info|
+      Book.create(
+        author_id: @author.id,
+        title: book_info[:title],
+        snippet: book_info[:snippet]
+      )
+    end
+    redirect "/authors"
   end
 
 end

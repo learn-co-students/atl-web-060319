@@ -12,12 +12,12 @@ A tiny library.
 <!-- * add a book to the library -->
 * have a page for listing authors in the library
 * have a form for adding an author and several of their books at once!
-* Separate authors and books
+<!-- * Separate authors and books -->
    * Add author model and migrate books to have an author_id
-   * Optional: Have different authors and books controllers
    * Add a form for creating an author and several books at the same time
 * Nice to have but maybe tomorrow:
   * Fix the original form to have a dropdown for author.
+  * Have different authors and books controllers
   * Add validations and error handling!
 
 ## Waking Up

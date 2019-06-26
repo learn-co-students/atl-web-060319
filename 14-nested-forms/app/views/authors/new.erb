@@ -1,0 +1,15 @@
+<h1>Add an Author and their Books</h1>
+
+<form method="POST" action="/authors">
+  <input type="text" name="full_name" placeholder="Full Name" />
+  <br />
+
+  <% 4.times do %>
+    <input type="text" name="books[][title]" placeholder="Title" />
+    <textarea name="books[][snippet]"></textarea> <br />
+  <% end %>
+
+  <input type="submit" value="Add Author!" />
+</form>
+
+<a href="/">Homepage</a>
