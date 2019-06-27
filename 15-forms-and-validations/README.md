@@ -18,13 +18,13 @@ A tiny library.
 
 ## Waking Up
 
-* Break our routes into separate controllers to keep the code organized!
+<!-- * Break our routes into separate controllers to keep the code organized! -->
 
-* Let's fix the add book form to let us pick from the existing authors with a dropdown.
+<!-- * Let's fix the add book form to let us pick from the existing authors with a dropdown. -->
 
 ## Editing & Validations
 
-* It would be nice to be able to edit a book. Let's add this so at least one controller supports the full set of RESTful routes.
+<!-- * It would be nice to be able to edit a book. Let's add this so at least one controller supports the full set of RESTful routes. -->
 
-* Now add some validations. Does saving always work?
+<!-- * Now add some validations. Does saving always work? -->
   * How can we improve the user experience if a record doesn't save?
