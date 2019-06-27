@@ -1,0 +1,18 @@
+<h1>Books in the Library</h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <a href="/books/<%= book.id %>">
+        <%= book.author.full_name %> - <%= book.title %>
+      </a>
+      <form method="POST" action="/books/<%= book.id %>">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="submit" value="Delete!" />
+      </form>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/books/new">Add a new book</a>
+<a href="/">Homepage</a>
