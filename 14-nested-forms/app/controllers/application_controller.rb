@@ -1,5 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :views, 'app/views'
+  set :method_override, true
 
   def initialize
     puts "\n\n>>>>> Building a new AppController: #{self} \n\n"
@@ -48,6 +49,12 @@ class ApplicationController < Sinatra::Base
       )
     end
     redirect "/authors"
+  end
+
+  delete '/books/:id' do
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect "/books"
   end
 
 end
