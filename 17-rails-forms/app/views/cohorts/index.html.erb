@@ -2,14 +2,14 @@
 <nav>
   <ul>
     <li>
-      <a href="/cohorts/new">Create new cohort</a>
+      <%= link_to("Create new cohort", new_cohort_path) %>
     </li>
   </ul>
 </nav>
 <ul>
   <% @cohorts.each do |cohort| %>
     <li>
-      <a href="/cohorts/<%= cohort.id %>"><%= cohort.name %></a>
+      <%= link_to(cohort.name, cohort_path(cohort)) %>
     </li>
   <% end %>
 </ul>

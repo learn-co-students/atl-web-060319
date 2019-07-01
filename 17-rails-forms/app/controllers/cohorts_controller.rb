@@ -8,14 +8,13 @@ class CohortsController < ApplicationController
   end
 
   def new
-    @cohort = Cohort.new
   end
 
   def create
     @cohort = Cohort.new(cohort_params)
 
     if @cohort.save
-      redirect_to '/cohorts'
+      redirect_to cohorts_path
     else
       render :new
     end
@@ -29,7 +28,8 @@ class CohortsController < ApplicationController
     @cohort = Cohort.find(params[:id])
 
     if @cohort.update(cohort_params)
-      redirect_to "/cohorts/#{@cohort.id}"
+      # redirect_to "/cohorts/#{@cohort.id}"
+      redirect_to cohort_path(@cohort)
     else
       render :edit
     end

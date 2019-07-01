@@ -1,8 +1,6 @@
-<form action="/cohorts" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>
-    <input type="text" name="cohort[name]" value="<%= @cohort.name %>">
-  </label>
+<h1>New Cohort</h1>
 
-  <input type="submit">
-</form>
+<%= form_tag(cohorts_path) do %>
+  <%= text_field_tag("cohort[name]", nil, placeholder: "Cohort Name") %>
+  <%= submit_tag("Save") %>
+<% end %>
