@@ -1,0 +1,5 @@
+<h2>Name: <%= @student.name %></h2>
+<h3>Cohort: <%= link_to(@student.cohort.name, cohort_path(@student.cohort)) %></h3>
+
+<%= link_to("Edit Student", edit_student_path(@student)) %>
+<%= link_to("All Students", students_path) %>

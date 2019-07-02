@@ -1,14 +1,11 @@
 ## Mod 2 Week 2
 
-* Monday: Rails Forms, Path and View Helpers, Strong Params, collection_select?
-  * afternoon: _tons_ of rails associations labs
-  * TIPS!
-* Tuesday: before_action, helper methods, Styling?
-  * rails validations labs
-* Wednesday: Validations and error handling. The flash.
-  * afternoon: practice code challenge and review
-* Thursday: Holy crap it's July 4th already.
-* Friday: Code challenge!
+* Tuesday:
+  * Rails Development Process
+  * Strong Params
+  * `form_for` and `collection_select`
+  * Bonus: Displaying errors. Maybe the flash?
+  * FSP at 4:30!
 
 ## Rails CRUD
 
@@ -16,7 +13,7 @@
 
 * A code school app with cohorts and students.
   * Cohorts have new/create/index/show.
-  * Students need new/create/index/show/edit/update/destroy.
+  * Students need new/create/edit/update/destroy.
 
 ### Learning Objectives
 
