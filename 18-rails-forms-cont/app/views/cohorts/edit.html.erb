@@ -1,0 +1,11 @@
+<h1><%= @cohort.name %></h1>
+
+<%= form_for(@cohort) do |f| %>
+  <%= f.text_field(:name, placeholder: "Cohort Name") %>
+  <%= f.submit %>
+<% end %>
+
+<%= form_tag(cohort_path(@cohort), method: :patch) do %>
+  <%= text_field_tag("cohort[name]", @cohort.name, placeholder: "Cohort Name") %>
+  <%= submit_tag("Save") %>
+<% end %>

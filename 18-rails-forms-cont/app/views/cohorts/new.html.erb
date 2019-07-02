@@ -1,0 +1,6 @@
+<h1>New Cohort</h1>
+
+<%= form_tag(cohorts_path) do %>
+  <%= text_field_tag("cohort[name]", nil, placeholder: "Cohort Name") %>
+  <%= submit_tag("Save") %>
+<% end %>
