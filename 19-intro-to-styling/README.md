@@ -8,9 +8,13 @@
   * Practice Challenge (today @ 1:00)
     * In the classroom, timed to better simulate test condition
   * 1-on-1s, 30 minute limit (today @ 3-5)
-  * Code Challenge (friday @ 8:30)
-  * Project Pitches (friday @ 2)
-  * Loginn lecture (monday @ 10)
+  * Code Challenge (friday @ 9:30)
+  * Login lecture (monday @ 10)
+  * BONUS lectures (optimistically):
+    * Unit Testing Tic Tac Toe - tue @ noon
+    * Coverage Testing Legacy Code - wed @ noon
+    * Refactoring - thu @ noon
+
 
 * Octocats - CSS Refresher - 20m
   * Anatomy of a CSS rule:

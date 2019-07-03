@@ -1,8 +1,22 @@
-<h1>What a cute pet!</h1>
-<h2><%= @pet.name %></h2>
-<h3>Owner: <%= link_to(@pet.person.name, person_path(@pet.person)) %></h3>
-<h4>Likes: <%= @pet.likes %></h4>
-
-<img style="width: 50%; height: 50%;" src="<%= @pet.image %>" />
+<div class="ui card">
+  <div class="image">
+    <%= image_tag(@pet.image) %>
+  </div>
+  <div class="content">
+    <a class="header"><%= @pet.name %></a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Owner: <%= link_to(@pet.person.name, person_path(@pet.person)) %>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      22 Friends
+    </a>
+  </div>
+</div>
 
 <%= link_to("All Pets", pets_path) %>
