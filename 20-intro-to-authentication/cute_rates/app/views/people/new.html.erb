@@ -7,16 +7,11 @@
   <%= f.number_field :age %>
   <%= f.label :location %>
   <%= f.text_field :location %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-  <p>Skip the bullshit. Tell me about your dog already.</p>
-  <%= f.fields_for(:pets) do |pet_form| %>
-    <%= pet_form.label :name %>
-    <%= pet_form.text_field :name %>
-    <%= pet_form.label :image %>
-    <%= pet_form.text_field :image %>
-    <%= pet_form.label :likes %>
-    <%= pet_form.number_field :likes %>
-  <% end %>
   <%= f.submit %>
 <% end %>
 

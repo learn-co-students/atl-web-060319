@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_action :authenticate!, except: [:index, :show]
+
   def index
     @pets = Pet.all
     render :index
@@ -11,12 +13,11 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
-    @people = Person.all
     render :new
   end
 
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.build(pet_params)
     if @pet.save
       redirect_to pet_path(@pet.id)
     else
@@ -33,6 +34,16 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
     redirect_to pet_path(@pet.id)
+  end
+
+  def destroy
+    @pet = Pet.find(params[:id])
+    if @pet.person == current_user
+      @pet.destroy
+    else
+      flash[:info] = "You are not allowed to delete other peoples pets."
+    end
+    redirect_to pets_path
   end
 
   private
