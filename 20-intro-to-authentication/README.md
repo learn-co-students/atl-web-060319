@@ -1,5 +1,13 @@
 ## Rails Authentication
 
+## The Parts of Auth
+
+3 big "pieces" to auth in most applications
+
+1. Some kind of user model with password storage.
+2. Need a login controller to manage sessions.
+3. Need some helpers to conveniently check who is logged in.
+
 ## Step by Step(ish)
 
 1. Hmm, any user can edit or delete any pet!
