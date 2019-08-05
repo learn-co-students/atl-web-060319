@@ -107,7 +107,7 @@ function deleteBook(id){
 
 function getAllBooks(){
 
-    fetch('http://localhost:3000/books')
+    fetch('http://localhost:3000/api/v1/books')
    .then(response => response.json() )
    .then(data => createBookList(data))
 }

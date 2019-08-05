@@ -1,0 +1,596 @@
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:21:37 -0400
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTrainers (20180502101416)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "trainers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180502101416"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePokemons (20180502101418)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "pokemons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "species" varchar, "nickname" varchar, "trainer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_pokemons_on_trainer_id" ON "pokemons" ("trainer_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180502101418"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-22 14:21:48.116433"], ["updated_at", "2019-07-22 14:21:48.116433"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pokemons_on_trainer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pokemons_on_trainer_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "trainers"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "pokemons"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Prince"], ["created_at", "2019-07-22 14:21:52.848846"], ["updated_at", "2019-07-22 14:21:52.848846"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dick"], ["created_at", "2019-07-22 14:21:52.850796"], ["updated_at", "2019-07-22 14:21:52.850796"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Garry"], ["created_at", "2019-07-22 14:21:52.852240"], ["updated_at", "2019-07-22 14:21:52.852240"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jason"], ["created_at", "2019-07-22 14:21:52.853610"], ["updated_at", "2019-07-22 14:21:52.853610"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Matt"], ["created_at", "2019-07-22 14:21:52.855006"], ["updated_at", "2019-07-22 14:21:52.855006"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Noah"], ["created_at", "2019-07-22 14:21:52.856390"], ["updated_at", "2019-07-22 14:21:52.856390"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Adam"], ["created_at", "2019-07-22 14:21:52.857833"], ["updated_at", "2019-07-22 14:21:52.857833"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Arthur"], ["created_at", "2019-07-22 14:21:52.859381"], ["updated_at", "2019-07-22 14:21:52.859381"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:22:30 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as HTML
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.47ms)
+Completed 200 OK in 61ms (Views: 54.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2019-07-22 10:22:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:31:45 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.18ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/trainers/pokemons" for 127.0.0.1 at 2019-07-22 10:32:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/trainers/pokemons"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "trainers"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "pokemons"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Prince"], ["created_at", "2019-07-22 14:33:57.474194"], ["updated_at", "2019-07-22 14:33:57.474194"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dick"], ["created_at", "2019-07-22 14:33:57.476457"], ["updated_at", "2019-07-22 14:33:57.476457"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Garry"], ["created_at", "2019-07-22 14:33:57.477934"], ["updated_at", "2019-07-22 14:33:57.477934"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jason"], ["created_at", "2019-07-22 14:33:57.479526"], ["updated_at", "2019-07-22 14:33:57.479526"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Matt"], ["created_at", "2019-07-22 14:33:57.480938"], ["updated_at", "2019-07-22 14:33:57.480938"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Noah"], ["created_at", "2019-07-22 14:33:57.488574"], ["updated_at", "2019-07-22 14:33:57.488574"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Adam"], ["created_at", "2019-07-22 14:33:57.490025"], ["updated_at", "2019-07-22 14:33:57.490025"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Arthur"], ["created_at", "2019-07-22 14:33:57.491562"], ["updated_at", "2019-07-22 14:33:57.491562"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Ninetales"], ["nickname", "Romana"], ["trainer_id", 9], ["created_at", "2019-07-22 14:33:58.198111"], ["updated_at", "2019-07-22 14:33:58.198111"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Raichu"], ["nickname", "Junior"], ["trainer_id", 10], ["created_at", "2019-07-22 14:33:58.202005"], ["updated_at", "2019-07-22 14:33:58.202005"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Abra"], ["nickname", "Willis"], ["trainer_id", 10], ["created_at", "2019-07-22 14:33:58.204915"], ["updated_at", "2019-07-22 14:33:58.204915"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Seadra"], ["nickname", "Carlita"], ["trainer_id", 10], ["created_at", "2019-07-22 14:33:58.207289"], ["updated_at", "2019-07-22 14:33:58.207289"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Chansey"], ["nickname", "Dino"], ["trainer_id", 11], ["created_at", "2019-07-22 14:33:58.209364"], ["updated_at", "2019-07-22 14:33:58.209364"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Machoke"], ["nickname", "Kiara"], ["trainer_id", 11], ["created_at", "2019-07-22 14:33:58.211530"], ["updated_at", "2019-07-22 14:33:58.211530"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Shellder"], ["nickname", "Vania"], ["trainer_id", 12], ["created_at", "2019-07-22 14:33:58.213574"], ["updated_at", "2019-07-22 14:33:58.213574"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Golduck"], ["nickname", "Cassey"], ["trainer_id", 12], ["created_at", "2019-07-22 14:33:58.216978"], ["updated_at", "2019-07-22 14:33:58.216978"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Paras"], ["nickname", "Anissa"], ["trainer_id", 12], ["created_at", "2019-07-22 14:33:58.220799"], ["updated_at", "2019-07-22 14:33:58.220799"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Caterpie"], ["nickname", "Sharice"], ["trainer_id", 13], ["created_at", "2019-07-22 14:33:58.223689"], ["updated_at", "2019-07-22 14:33:58.223689"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Pinsir"], ["nickname", "Jerry"], ["trainer_id", 13], ["created_at", "2019-07-22 14:33:58.225964"], ["updated_at", "2019-07-22 14:33:58.225964"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Slowpoke"], ["nickname", "Rachell"], ["trainer_id", 14], ["created_at", "2019-07-22 14:33:58.228052"], ["updated_at", "2019-07-22 14:33:58.228052"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Goldeen"], ["nickname", "Dallas"], ["trainer_id", 15], ["created_at", "2019-07-22 14:33:58.230588"], ["updated_at", "2019-07-22 14:33:58.230588"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Weedle"], ["nickname", "Liberty"], ["trainer_id", 15], ["created_at", "2019-07-22 14:33:58.233873"], ["updated_at", "2019-07-22 14:33:58.233873"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Exeggutor"], ["nickname", "Sherril"], ["trainer_id", 15], ["created_at", "2019-07-22 14:33:58.237729"], ["updated_at", "2019-07-22 14:33:58.237729"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Moltres"], ["nickname", "Virgilio"], ["trainer_id", 15], ["created_at", "2019-07-22 14:33:58.240175"], ["updated_at", "2019-07-22 14:33:58.240175"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Ekans"], ["nickname", "Orville"], ["trainer_id", 16], ["created_at", "2019-07-22 14:33:58.242495"], ["updated_at", "2019-07-22 14:33:58.242495"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Bulbasaur"], ["nickname", "Beulah"], ["trainer_id", 16], ["created_at", "2019-07-22 14:33:58.244870"], ["updated_at", "2019-07-22 14:33:58.244870"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Seadra"], ["nickname", "Mervin"], ["trainer_id", 16], ["created_at", "2019-07-22 14:33:58.247892"], ["updated_at", "2019-07-22 14:33:58.247892"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Rattata"], ["nickname", "Stanford"], ["trainer_id", 16], ["created_at", "2019-07-22 14:33:58.251790"], ["updated_at", "2019-07-22 14:33:58.251790"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Cubone"], ["nickname", "Della"], ["trainer_id", 16], ["created_at", "2019-07-22 14:33:58.255184"], ["updated_at", "2019-07-22 14:33:58.255184"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Golduck"], ["nickname", "Grady"], ["trainer_id", 16], ["created_at", "2019-07-22 14:33:58.257425"], ["updated_at", "2019-07-22 14:33:58.257425"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTrainer Load (0.8ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:34:48 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.35ms)
+Completed 200 OK in 59ms (Views: 52.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:56:47 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.47ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:56:47 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.89ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:57:16 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.7ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 10:58:54 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.28ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 11:03:08 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.5ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.24ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 11:03:18 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.0ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 11:03:53 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.26ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 13:07:21 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.87ms)
+Completed 200 OK in 56ms (Views: 50.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 13:07:24 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.3ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.02ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 13:08:25 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.56ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 13:09:05 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.4ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.71ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-22 13:09:16 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.59ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 14:58:54 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.9ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (1.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.59ms)
+Completed 200 OK in 83ms (Views: 70.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 14:58:55 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.96ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 14:59:31 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.22ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 14:59:53 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.03ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 15:00:08 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.71ms)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 15:00:13 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.43ms)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/trainers" for 127.0.0.1 at 2019-07-26 15:00:26 -0400
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 10]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 12]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.8ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 1.4ms)
+
+
