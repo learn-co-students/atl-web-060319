@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+import ATMForm from '../components/ATMForm'
 
 const Table = (props) => {
 
@@ -19,6 +20,7 @@ const Table = (props) => {
           {renderPlates(props.eaten)}
         </div>
       </div>
+      <ATMForm />
     </Fragment>
   )
 }

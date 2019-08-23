@@ -1,15 +1,16 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 
 const Sushi = (props) => {
   return (
     <div className="sushi">
       <div className="plate"
-        onClick={/* Give me a callback! */ null}>
+        onClick={() => props.dispatch({ type: 'EAT_SUSHI', id: props.id, price: props.price })}>
         {
-          false ?
+          props.eaten.includes(props.id) ?
             null
             :
-            <img src={props.img_url} width="100%" />
+            <img src={props.img_url} alt={`Piece of ${props.name} Sushi`} width="100%" />
         }
       </div>
       <h4 className="sushi-details">
@@ -19,4 +20,6 @@ const Sushi = (props) => {
   )
 }
 
-export default Sushi
+const mapStateToProps = state => ({ eaten: state.order.eaten })
+
+export default connect(mapStateToProps)(Sushi)
